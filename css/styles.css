@@ -8,25 +8,27 @@
  *
 */
 
-
 /* ---- Base Rules ---- */
 body {
-    background: rgb(136,203,171);
-    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
+    background: rgb(136, 203, 171);
+    background: linear-gradient(
+        0deg,
+        rgba(136, 203, 171, 1) 0%,
+        rgba(0, 13, 60, 1) 100%
+    );
     margin: 0;
-    font-family: 'Merriweather', serif;
+    font-family: "Merriweather", serif;
     color: #fff;
 }
 
-
 /* Typeography General*/
 h1 {
-    font-family: 'Fira Sans', sans-serif;
+    font-family: "Fira Sans", sans-serif;
     font-size: 3em;
     margin: 2em 1rem;
 }
 
-@media only screen and (min-width: 35em){
+@media only screen and (min-width: 35em) {
     h1 {
         font-size: 7em;
         margin: 2em 4rem 1em;
@@ -35,7 +37,7 @@ h1 {
 
 h2 {
     border-bottom: 1px solid #cc1;
-    font-family: 'Oxygen', Sans-Serif;
+    font-family: "Oxygen", Sans-Serif;
     font-size: 3em;
     color: #fff;
 }
@@ -57,9 +59,7 @@ main {
 
 section {
     position: relative;
-    min-height: 80vh;
 }
-
 
 /* ---- Module Rules ---- */
 
@@ -68,6 +68,19 @@ section {
     padding-left: 0;
     margin: 0;
     text-align: right;
+    display: none;
+}
+
+.navbar__menu ul.show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media only screen and (min-width: 35em) {
+    .navbar__menu ul {
+        display: block;
+    }
 }
 
 .navbar__menu li {
@@ -88,13 +101,52 @@ section {
     transition: ease 0.3s all;
 }
 
+.navbar__menu .menu__link.active-section {
+    background: rgba(0, 13, 60, 1);
+    color: #fff;
+    transition: ease 0.3s all;
+}
+
+.burger {
+    cursor: pointer;
+    padding: 10px 15px;
+    background: lightsteelblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul.show.show + .burger {
+    background: lightsteelblue;
+}
+
+@media only screen and (min-width: 35em) {
+    .burger {
+        display: none;
+    }
+}
+
+.burger-icon {
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 3px 0;
+    transition: transform 0.3s ease;
+}
+
 /* Header Styles */
 .page__header {
     background: #fff;
-    position: fixed;
+    position: sticky;
     top: 0;
     width: 100%;
     z-index: 5;
+}
+
+@media only screen and (min-width: 35em) {
+    .page__header {
+        position: fixed;
+    }
 }
 
 /* Footer Styles */
@@ -104,36 +156,55 @@ section {
     color: #fff;
 }
 
-.page__footer p{
+.page__footer p {
     color: #fff;
 }
 
+/* Scroll to top button */
+.btn-scroll-to-top {
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(0, 13, 60, 1);
+    border: none;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20;
+    right: 20;
+}
 
 /* ---- Theme Rules ---- */
 /* Landing Container Styles */
 .landing__container {
     padding: 1em;
     text-align: left;
+    overflow: hidden;
 }
 
-@media only screen and (min-width: 35em){
+@media only screen and (min-width: 35em) {
     .landing__container {
         max-width: 50em;
         padding: 4em;
     }
 }
 
+.collapsed .landing__container {
+    padding-bottom: 0;
+}
+
 section:nth-of-type(even) .landing__container {
     margin-right: 0;
     margin-left: auto;
-    text-align: right; 
+    text-align: right;
 }
 
 /* Background Circles */
 /* Note that background circles are created with psuedo elements before and after */
 /* Circles appear to be random do to use of :nth-of-type psuedo class */
 section:nth-of-type(odd) .landing__container::before {
-    content: '';
+    content: "";
     background: rgba(255, 255, 255, 0.187);
     position: absolute;
     z-index: -5;
@@ -145,9 +216,13 @@ section:nth-of-type(odd) .landing__container::before {
 }
 
 section:nth-of-type(even) .landing__container::before {
-    content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    content: "";
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.2) 100%
+    );
     position: absolute;
     top: 3em;
     right: 3em;
@@ -160,9 +235,13 @@ section:nth-of-type(even) .landing__container::before {
 }
 
 section:nth-of-type(3n) .landing__container::after {
-    content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    content: "";
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.2) 100%
+    );
     position: absolute;
     right: 0;
     bottom: 0;
@@ -175,9 +254,13 @@ section:nth-of-type(3n) .landing__container::after {
 }
 
 section:nth-of-type(3n + 1) .landing__container::after {
-    content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
+    content: "";
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.2) 100%
+    );
     position: absolute;
     right: 20vw;
     bottom: -5em;
@@ -189,35 +272,88 @@ section:nth-of-type(3n + 1) .landing__container::after {
     transition: ease 0.5s all;
 }
 
-
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
-section.your-active-class {
+section.active-section {
     background: rgb(0, 0, 0);
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+    background: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.1) 0%,
+        rgba(0, 0, 0, 0) 100%
+    );
 }
 
-section.your-active-class .landing__container::before {
+section.active-section .landing__container::before {
     opacity: 1;
     animation: rotate 4s linear 0s infinite forwards;
 }
 
-section.your-active-class .landing__container::after {
+section.active-section .landing__container::after {
     opacity: 1;
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
 
+/* Section Collapse Styles */
+section h2 {
+    cursor: pointer;
+}
+
+section .content {
+    position: relative;
+    transition: max-height 0.5s linear;
+}
+
+section.collapsed .content {
+    max-height: 0;
+}
+
+section:not(.collapsed) .content {
+    min-height: 50vh;
+}
+
+@media only screen and (min-width: 35em) {
+    section .content {
+        max-height: 100%;
+    }
+}
+
+section h2::after {
+    content: "\25bc";
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    transform: scale(0.7);
+}
+
+section.collapsed h2::after {
+    content: "\25b2";
+    animation: fadeIn 2s;
+}
+
+section:nth-of-type(even) h2::after {
+    float: left;
+    margin-left: 0;
+    margin-right: 5px;
+}
+
 /* Section Active Styles Keyframe Animations */
 @keyframes rotate {
-	from {
-		transform: rotate(0deg)
-		           translate(-1em)
-		           rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg)
-		           translate(-1em) 
-		           rotate(-360deg);
-	}
+    from {
+        transform: rotate(0deg) translate(-1em) rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg) translate(-1em) rotate(-360deg);
+    }
+}
+
+/* Section Collapss Styles Keyframe Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

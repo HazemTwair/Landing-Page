@@ -1,59 +1,188 @@
 <!DOCTYPE >
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Manipulating the DOM</title>
-  <!-- Load Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap" rel="stylesheet">  <!-- Load Styles -->
-  <link href="css/styles.css" rel="stylesheet">
-</head>
-<body>
-  <!-- HTML Follows BEM naming conventions 
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Manipulating the DOM</title>
+        <!-- Load Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Fira+Sans:900|Merriweather&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Load Styles -->
+        <link href="css/styles.css" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- HTML Follows BEM naming conventions 
   IDs are only used for sections to connect menu achors to sections -->
-  <header class="page__header">
-    <nav class="navbar__menu">
-      <!-- Navigation starts as empty UL that will be populated with JS -->
-      <ul id="navbar__list"></ul>
-    </nav>
-  </header>
-  <main>
-    <header class="main__hero">
-      <h1>Landing Page </h1>
-    </header>
-    <!-- Each Section has an ID (used for the anchor) and 
+        <header class="page__header">
+            <nav class="navbar__menu">
+                <!-- Navigation starts as empty UL that will be populated with JS -->
+                <ul id="navbar__list"></ul>
+                <div class="burger">
+                    <div class="burger-icon"></div>
+                    <div class="burger-icon"></div>
+                    <div class="burger-icon"></div>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <header class="main__hero">
+                <h1>Landing Page</h1>
+            </header>
+            <!-- Each Section has an ID (used for the anchor) and 
     a data attribute that will populate the li node.
     Adding more sections will automatically populate nav.
     The first section is set to active class by default -->
-    <section id="section1" data-nav="Section 1" class="your-active-class">
-      <div class="landing__container">
-        <h2>Section 1</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
+            <!-- The paragraphs' text is taken from cupcakeipsum.com -->
+            <section id="section1" data-nav="Section 1" class="active-section">
+                <div class="landing__container">
+                    <h2 aria-expanded="true" aria-controls="section1-content">Section 1</h2>
+                    <div id="section1-content" class="content">
+                        <p>
+                            Sweet gingerbread croissant cookie icing pie gummi
+                            bears. Chocolate cake soufflé lollipop topping
+                            danish muffin tiramisu sugar plum. Cheesecake jelly
+                            beans lollipop halvah jelly beans jelly beans
+                            chocolate bar. Gingerbread bonbon cake tootsie roll
+                            sugar plum fruitcake. Liquorice pudding jelly beans
+                            brownie cupcake chocolate cake oat cake caramels
+                            apple pie. Jelly cake danish tiramisu bonbon sesame
+                            snaps cheesecake muffin. Bonbon ice cream marzipan
+                            donut fruitcake tart.
+                        </p>
 
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
-      </div>
-    </section>
-    <section id="section2" data-nav="Section 2">
-      <div class="landing__container">
-        <h2>Section 2</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
+                        <p>
+                            Macaroon cotton candy liquorice halvah liquorice
+                            cookie donut caramels cheesecake. Macaroon powder
+                            gingerbread marzipan dragée tootsie roll. Jelly
+                            beans tiramisu pudding cake bear claw. Cake jelly-o
+                            pie halvah chocolate wafer pie. Carrot cake oat cake
+                            fruitcake pastry topping. Powder macaroon biscuit
+                            halvah halvah jelly-o tart sesame snaps cotton
+                            candy. Cupcake jelly-o soufflé powder powder jelly
+                            brownie wafer.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section id="section2" data-nav="Section 2">
+                <div class="landing__container">
+                    <h2 aria-expanded="true" aria-controls="section2-content">Section 2</h2>
+                    <div id="section2-content" class="content">
+                        <p>
+                            Fruitcake wafer fruitcake carrot cake donut gummies.
+                            Ice cream bear claw bonbon jujubes chupa chups apple
+                            pie marshmallow soufflé. Brownie cupcake chupa chups
+                            chocolate cake wafer pastry shortbread chocolate.
+                            Caramels toffee sweet cupcake gummi bears pie.
+                            Danish wafer sweet roll liquorice biscuit bonbon
+                            candy canes. Halvah dessert wafer jelly-o chupa
+                            chups muffin.
+                        </p>
 
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
-      </div>
-    </section>
-    <section id="section3" data-nav="Section 3">
-      <div class="landing__container">
-        <h2>Section 3</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie semper in tellus. Sed congue et odio sed euismod.</p>
+                        <p>
+                            Dessert toffee wafer lollipop pastry powder jujubes.
+                            Pudding powder marzipan bonbon sugar plum toffee
+                            fruitcake. Candy canes powder candy canes caramels
+                            jelly-o tiramisu gummies. Cotton candy halvah bear
+                            claw bear claw tootsie roll toffee marshmallow jelly
+                            chocolate cake. Pastry muffin candy danish sugar
+                            plum topping dragée gummies. Powder sweet cake
+                            tiramisu tootsie roll. Shortbread jelly-o tootsie
+                            roll chocolate bar tootsie roll cheesecake tart.
+                            Tart pie shortbread apple pie sweet. Pastry macaroon
+                            fruitcake jelly beans cupcake gummi bears dessert.
+                            Candy canes cotton candy bear claw topping chupa
+                            chups ice cream danish.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <section id="section3" data-nav="Section 3">
+                <div class="landing__container">
+                    <h2 aria-expanded="true" aria-controls="section3-content">Section 3</h2>
+                    <div id="section3-content" class="content">
+                        <p>
+                            Sweet roll tiramisu carrot cake cotton candy jelly-o
+                            apple pie biscuit wafer. Chocolate cake tiramisu
+                            macaroon pastry croissant cake sesame snaps gummi
+                            bears. Pie cotton candy bonbon halvah marshmallow
+                            fruitcake jelly-o toffee brownie. Danish bonbon
+                            tootsie roll tart marzipan jelly beans. Croissant
+                            shortbread topping chocolate bar powder powder bear
+                            claw cotton candy. Apple pie topping jelly beans
+                            croissant jujubes tart. Pudding cheesecake
+                            cheesecake croissant tiramisu muffin pudding wafer
+                            bear claw. Liquorice candy pudding sweet roll
+                            chocolate. Icing jelly-o cake carrot cake topping
+                            jelly beans sugar plum icing lemon drops.
+                        </p>
 
-        <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
-      </div>
-    </section>
-  </main>
-  <footer class="page__footer">
-    <p>&copy Udacity</p>
-  </footer>
+                        <p>
+                            Dragée cookie gummi bears pudding sugar plum bonbon
+                            sesame snaps toffee. Jelly beans dragée pudding
+                            sugar plum croissant sweet. Pie marshmallow jelly
+                            chocolate jelly-o cake chupa chups. Chocolate bar
+                            sweet roll bear claw sweet brownie. Fruitcake cookie
+                            chocolate bar pie lollipop brownie brownie halvah
+                            chocolate. Halvah cake croissant carrot cake toffee
+                            apple pie liquorice lemon drops icing. Sesame snaps
+                            sugar plum danish bear claw marzipan chocolate
+                            danish. Tiramisu lollipop oat cake powder soufflé.
+                            Powder tiramisu jelly lemon drops bear claw caramels
+                            oat cake.
+                        </p>
+                    </div>
+                    </div>
+                </div>
+            </section>
+            <section id="section4" data-nav="Section 4">
+                <div class="landing__container">
+                    <h2 aria-expanded="true" aria-controls="section4-content">Section 4</h2>
+                    <div id="section4-content" class="content">
+                        <p>
+                            Shortbread powder marzipan jelly beans jelly sesame
+                            snaps sesame snaps cotton candy. Powder carrot cake
+                            wafer cake halvah wafer. Dragée pie tootsie roll
+                            caramels bonbon sesame snaps sugar plum jelly-o.
+                            Soufflé cake macaroon chocolate pudding caramels
+                            caramels tart. Marshmallow pudding cake wafer oat
+                            cake lollipop cake candy canes tart. Candy dragée
+                            topping halvah biscuit jelly caramels candy.
+                            Gingerbread soufflé caramels toffee sweet jelly-o
+                            caramels caramels biscuit. Macaroon jujubes candy
+                            chocolate cheesecake danish soufflé marshmallow.
+                            Chupa chups caramels topping oat cake tart bonbon.
+                        </p>
 
-</body>
+                        <p>
+                            Cupcake brownie jelly-o tart carrot cake tart.
+                            Chocolate dragée fruitcake ice cream danish. Pastry
+                            biscuit chupa chups bonbon cupcake sweet roll.
+                            Shortbread jelly-o topping apple pie pudding donut
+                            donut topping. Cake danish biscuit wafer candy cake.
+                            Caramels topping brownie sweet roll cotton candy.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <button class="btn-scroll-to-top none">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License 
+- https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                        fill="#ffffff"
+                        d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"
+                    />
+                </svg>
+            </button>
+        </main>
+        <footer class="page__footer">
+            <p>&copy Udacity</p>
+            <p> Improved by Hazem Twair</p>
+        </footer>
+        <script src="/js/app.js"></script>
+    </body>
 </html>
